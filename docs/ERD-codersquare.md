@@ -19,7 +19,7 @@ this early stage.
 We ruled out storage-as-a-service services such as Firestore and the like in
 order to showcase building a standalone backend for educational purposes.
 
-### Schema:
+### Schema
 
 We'll need at least the following entities to implement the service:
 
@@ -75,7 +75,7 @@ for Google + Facebook and maybe others (Github?).
 
 **Auth**:
 
-```
+```sh
 /signIn  [POST]
 /signUp  [POST]
 /signOut [POST]
@@ -83,7 +83,7 @@ for Google + Facebook and maybe others (Github?).
 
 **Posts**:
 
-```
+```sh
 /posts/list [GET]
 /posts/new  [POST]
 /posts/:id  [GET]
@@ -92,13 +92,13 @@ for Google + Facebook and maybe others (Github?).
 
 **Likes**:
 
-```
+```sh
 /likes/new [POST]
 ```
 
 **Comments**:
 
-```
+```sh
 /comments/new  [POST]
 /comments/list [GET]
 /comments/:id  [DELETE]
