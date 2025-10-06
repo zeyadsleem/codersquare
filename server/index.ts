@@ -1,24 +1,16 @@
 import express, { type RequestHandler } from "express";
-import { db } from "./datastore/index";
+import { createPostHandler, listPostsHandler } from "./handlers/postHandler";
 
 const app = express();
-app.use(express.json());
 
+app.use(express.json());
 const requestLoggerMiddleware: RequestHandler = (req, _res, next) => {
   console.log(req.method, req.path, "- body", req.body);
   next();
 };
-
 app.use(requestLoggerMiddleware);
 
-app.get("/posts", (_req, res) => {
-  res.send({ posts: db.listPosts() });
-});
-
-app.post("/posts", (req, res) => {
-  const post = req.body;
-  db.cretePost(post);
-  res.sendStatus(200);
-});
+app.get("/posts", listPostsHandler);
+app.post("/posts", createPostHandler);
 
 app.listen(3000, () => console.log("server is running"));

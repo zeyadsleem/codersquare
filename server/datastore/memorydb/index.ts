@@ -19,7 +19,7 @@ export class InMemoryDatastore implements Datastore {
   listPosts(): Post[] {
     return this.posts;
   }
-  cretePost(post: Post): void {
+  createPost(post: Post): void {
     this.posts.push(post);
   }
   getPost(id: string): Post | undefined {
