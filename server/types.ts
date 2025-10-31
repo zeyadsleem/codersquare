@@ -1,4 +1,5 @@
 import { RequestHandler } from "express";
+import type {Comment} from "./dao/types";
 
 export interface User {
     id: string;
@@ -31,3 +32,8 @@ export interface Comment {
 }
 
 export type ExpressHandler<Req, Res> = RequestHandler<string, Partial<Res>, Partial<Req>, any>;
+export interface CommentDao {
+    createComment(comment: Comment): void;
+    listComments(postId: string): Comment[] | undefined;
+    deleteComment(id: string): void;
+}

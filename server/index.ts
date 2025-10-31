@@ -10,8 +10,8 @@ const requestLoggerMiddleware: RequestHandler = (req, _res, next) => {
 };
 app.use(requestLoggerMiddleware);
 
-app.get("/posts", listPostsHandler);
-app.post("/posts", createPostHandler);
+app.get("/v1/posts", listPostsHandler);
+app.post("/v1/posts", createPostHandler);
 
 const errHandler: ErrorRequestHandler = (err, req, res, next) => {
     console.log("Uncaught exeption:", err);
