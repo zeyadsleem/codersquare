@@ -1,21 +1,21 @@
-import { Post } from "./types";
+import { Post } from './types';
 
-// Post Apis
+// Post APIs
 export interface ListPostsRequest {}
 export interface ListPostsResponse {
-    posts: Post[];
+  posts: Post[];
 }
 
-export type CreatePostRequest = Pick<Post, "title" | "url" | "userId">;
+export type CreatePostRequest = Pick<Post, 'title' | 'url' | 'userId'>;
 export interface CreatePostResponse {}
 
 export interface GetPostRequest {}
 export interface GetPostResponse {
-    post: Post;
+  post: Post;
 }
 
-// Comment Apis
+// Comment APIs
 
-// Like Apis
+// Like APIs
 
-// User Apis
+// User APIs

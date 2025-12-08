@@ -22,11 +22,15 @@
     },
     "homepage": "https://github.com/zeyadsleem/codersquare#readme",
     "dependencies": {
-        "express": "^5.1.0"
+        "express": "^5.1.0",
+        "sqlite": "^5.1.1",
+        "sqlite3": "^5.1.7"
     },
     "devDependencies": {
         "@types/express": "^5.0.3",
         "@types/node": "^24.5.2",
+        "@typescript-eslint/eslint-plugin": "^8.48.1",
+        "@typescript-eslint/parser": "^8.48.1",
         "eslint": "^9.37.0",
         "eslint-config-prettier": "^10.1.8",
         "nodemon": "^3.1.10",

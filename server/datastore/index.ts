@@ -1,9 +1,16 @@
-import type { CommentDao } from "./dao/CommentDao";
-import type { LikeDao } from "./dao/LikeDao";
-import { InMemoryDatastore } from "./memorydb/index";
-import type { PostDao } from "./dao/PostDao";
-import type { UserDao } from "./dao/UserDao";
+import { CommentDao } from './dao/CommentDao';
+import { LikeDao } from './dao/LikeDao';
+import { PostDao } from './dao/PostDao';
+import { UserDao } from './dao/UserDao';
+import { SqlDataStore } from './sql';
+
+// import { InMemoryDatastore } from './memorydb';
 
 export interface Datastore extends UserDao, PostDao, LikeDao, CommentDao {}
 
-export const db = new InMemoryDatastore();
+export let db: Datastore;
+
+export async function initDb() {
+  // db = new InMemoryDatastore();
+  db = await new SqlDataStore().openDb();
+}
