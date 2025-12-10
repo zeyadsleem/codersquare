@@ -1,39 +1,39 @@
 {
-    "name": "codersquare",
-    "version": "1.0.0",
-    "description": "Social web app for sharing learning resources in a hackernews-style experience.",
-    "directories": {
-        "doc": "docs"
-    },
-    "scripts": {
-        "dev": "nodemon index.ts",
-        "build": "tsc",
-        "start": "node dist/index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/zeyadsleem/codersquare.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/zeyadsleem/codersquare/issues"
-    },
-    "homepage": "https://github.com/zeyadsleem/codersquare#readme",
-    "dependencies": {
-        "express": "^5.1.0",
-        "sqlite": "^5.1.1",
-        "sqlite3": "^5.1.7"
-    },
-    "devDependencies": {
-        "@types/express": "^5.0.3",
-        "@types/node": "^24.5.2",
-        "@typescript-eslint/eslint-plugin": "^8.48.1",
-        "@typescript-eslint/parser": "^8.48.1",
-        "eslint": "^9.37.0",
-        "eslint-config-prettier": "^10.1.8",
-        "nodemon": "^3.1.10",
-        "typescript": "^5.9.2"
-    }
+  "name": "codersquare",
+  "version": "1.0.0",
+  "description": "Social web app for sharing learning resources in a hackernews-style experience.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "nodemon server.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeyadsleem/codersquare.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeyadsleem/codersquare/issues"
+  },
+  "homepage": "https://github.com/zeyadsleem/codersquare#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.2"
+  }
 }
