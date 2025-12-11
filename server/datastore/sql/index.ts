@@ -1,5 +1,5 @@
 import path from 'path';
-import { open as sqliteOpen, Database } from 'sqlite';
+import { Database, open as sqliteOpen } from 'sqlite';
 import sqlite3 from 'sqlite3';
 
 import { Datastore } from '..';
@@ -36,12 +36,16 @@ export class SqlDataStore implements Datastore {
     );
   }
 
+  getUserById(id: string): Promise<User | undefined> {
+    return this.db.get<User>(`SELECT * FROM users WHERE id = ?`, id);
+  }
+
   getUserByEmail(email: string): Promise<User | undefined> {
-    return this.db.get<User>('SELECT * FROM users WHERE email = ?', email);
+    return this.db.get<User>(`SELECT * FROM users WHERE email = ?`, email);
   }
 
   getUserByUsername(username: string): Promise<User | undefined> {
-    return this.db.get<User>('SELECT * FROM users WHERE userName = ?', username);
+    return this.db.get<User>(`SELECT * FROM users WHERE userName = ?`, username);
   }
 
   listPosts(): Promise<Post[]> {
