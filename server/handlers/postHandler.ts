@@ -4,20 +4,14 @@ import { CreatePostRequest, CreatePostResponse, ListPostsRequest, ListPostsRespo
 import { db } from '../datastore';
 import { ExpressHandler, Post } from '../types';
 
-export const listPostsHandler: ExpressHandler<ListPostsRequest, ListPostsResponse> = async (
-  req,
-  res
-) => {
+export const listPostsHandler: ExpressHandler<ListPostsRequest, ListPostsResponse> = async (req, res) => {
   // TODO: add pagination and filtering
   return res.send({ posts: await db.listPosts() });
 };
 
-export const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResponse> = async (
-  req,
-  res
-) => {
+export const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResponse> = async (req, res) => {
   // TODO: better error messages
-  if (!req.body.title || !req.body.url || !req.body.userId) {
+  if (!req.body.title || !req.body.url) {
     return res.sendStatus(400);
   }
 
@@ -30,7 +24,7 @@ export const createPostHandler: ExpressHandler<CreatePostRequest, CreatePostResp
     postedAt: Date.now(),
     title: req.body.title,
     url: req.body.url,
-    userId: req.body.userId,
+    userId: res.locals.userId,
   };
   await db.createPost(post);
   return res.sendStatus(200);

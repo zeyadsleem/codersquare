@@ -22,6 +22,8 @@ export const authMiddleware: ExpressHandler<any, any> = async (req, res, next) =
 
     if (!user) throw new Error('User not found');
 
+    res.locals.userId = user.id;
+
     next();
   } catch (err) {
     return res.status(401).json({ error: 'Invalid or expired token' });
