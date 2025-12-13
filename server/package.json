@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "nodemon --exec npx ts-node --transpile-only server.ts",
     "build": "tsc",
-    "start": "node dist/index.js",
-    "start:prod": "npm run build && pm2 restart codersquare || pm2 start dist/index.js --name codersquare"
+    "start": "node index.ts",
+    "start:prod": "pm2 delete codersquare; pm2 start --name codersquare \"npx ts-node --transpile-only server.ts\""
   },
   "repository": {
     "type": "git",
