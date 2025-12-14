@@ -3,17 +3,26 @@ name: Droplet deployer
 on:
   push:
     branches: [deploy-prod]
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Deploy and restart web server
+      - name: Checkout repostry
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
         run: |
           cd server
           npm install
-          PORT=3000 JWT_SECRET=12345 PASSWORD_SALT=mysecretsalt ENV=production npm run start:prod
+
+      - name: Start/Restart PM2 server
+        env:
+          PORT: 3000
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          PASSWORD_SALT: ${{ secrets.PASSWORD_SALT }}
+          ENV: production
+        run: |
+          cd server
+          npm run start:prod
